@@ -14,7 +14,7 @@
           "checked_at": "2026-10-29T23:19:51+03:00",
           "currency": "RUB",
           "status": "ok",
-          "regular_price": 15990,
+          "regular_price": 10000,
           "sale_price": null,
           "has_credit": true,
           "error": null
@@ -24,6 +24,37 @@
           "configuration": "Снегоуборщик, 1 аккумуляторная батарея и зарядное устройство",
           "url": "https://moscow.petrovich.ru/product/1235503/",
           "checked_at": "2026-10-29T23:19:51+03:00",
+          "currency": "RUB",
+          "status": "ok",
+          "regular_price": 12000,
+          "sale_price": null,
+          "has_credit": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "run_id": "tracker-20261029T235919-3421li",
+      "started_at": "2026-10-29T23:59:19+03:00",
+      "finished_at": "2026-10-30T00:00:08+03:00",
+      "results": [
+        {
+          "product": "Daewoo DAST 3421Li SET",
+          "configuration": "Снегоуборщик, 1 аккумуляторная батарея и зарядное устройство",
+          "url": "https://lemanapro.ru/product/snegouborshchik-akkumulyatornyy-daewoo-dast-3421li-set-akb-i-zu-v-komplekte-92661926/",
+          "checked_at": "2026-10-29T23:59:56+03:00",
+          "currency": "RUB",
+          "status": "ok",
+          "regular_price": 15990,
+          "sale_price": null,
+          "has_credit": true,
+          "error": null
+        },
+        {
+          "product": "Daewoo DAST 3421Li SET",
+          "configuration": "Снегоуборщик, 1 аккумуляторная батарея и зарядное устройство",
+          "url": "https://moscow.petrovich.ru/product/1235503/",
+          "checked_at": "2026-10-29T23:59:56+03:00",
           "currency": "RUB",
           "status": "ok",
           "regular_price": 15990,

@@ -1,27 +1,63 @@
-# Трекер цен с Claude
+# Трекер цен
 
 
 [![hexlet-check](https://github.com/igorshpindler-tech/vibecoding-claudecode-project-388/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/igorshpindler-tech/vibecoding-claudecode-project-388/actions)
 
-Соберите на Claude-скиллах трекер цен: он сам следит за товарами и присылает в Telegram только значимые изменения.
+Трекер на навыках Codex собирает цены по запросу, сравнивает их с предыдущим днём и отправляет в Telegram значимые изменения. Целевой товар и комплектация описаны в [KNOWLEDGE.md](KNOWLEDGE.md).
 
 Учебный проект Хекслета: https://ru.hexlet.io/programs/vibecoding-claudecode
 
 
 ## Стек
 
-- Разное
+- Codex с доступом к веб-страницам и GitHub.
+- Python 3 для отправки сообщений; дополнительные библиотеки не требуются.
+
+## Структура проекта
+
+```text
+.
+├── .agents/skills/
+│   ├── tracker/SKILL.md
+│   └── extract-price/SKILL.md
+├── .github/workflows/
+├── AGENTS.md
+├── KNOWLEDGE.md
+├── README.md
+├── send.py
+├── .env.example
+├── .env                 # локальные настройки, исключены из Git
+└── YYYY-MM-DD.json      # локальные копии результатов
+```
+
+`AGENTS.md` задаёт правила работы агента, `KNOWLEDGE.md` хранит параметры проекта, а навыки описывают процедуры. Правила значимости изменений читаются из актуального [KNOWLEDGE.md репозитория данных](https://github.com/igorshpindler-tech/tracker-data/blob/main/KNOWLEDGE.md); локальная копия правил не ведётся.
+
+Codex обнаруживает навыки проекта в `.agents/skills/`. При совпадении имён с общими навыками инструкции проекта требуют читать локальные файлы. Эта структура рассчитана на Codex; подключение к Claude Code нужно настраивать отдельно.
 
 ## Установка
-
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
 
 ```bash
 git clone https://github.com/igorshpindler-tech/vibecoding-claudecode-project-388.git
 cd vibecoding-claudecode-project-388
 ```
 
+Откройте папку проекта в Codex. Для сбора нужен доступ к сайтам магазинов, для сохранения — право записи в `igorshpindler-tech/tracker-data`.
+
+Скопируйте `.env.example` в `.env` и заполните настройки Telegram. Существующий `.env` сохраняйте. Агент при запуске мониторинга передаёт настройки скрипту через окружение; сам скрипт файл не загружает.
+
 ## Использование
+
+### Мониторинг
+
+В чате Codex из папки проекта отправьте запрос:
+
+```text
+Используй локальный навык .agents/skills/tracker/SKILL.md и проверь цены по проекту.
+```
+
+Агент прочитает параметры товара, проверит предложения через локальный `extract-price`, сохранит результаты и выполнит сравнение. При первом запуске без данных за предыдущий день сравнение недоступно. Автоматическое расписание настраивается отдельно.
+
+Для проверки одной карточки укажите URL и попросите использовать `.agents/skills/extract-price/SKILL.md`.
 
 ### Отправка сообщения в Telegram
 
